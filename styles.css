@@ -1,0 +1,1005 @@
+/*--Cheyenne Gilles*/
+
+/* ---CSS RESET---*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/*---VARIABLES---*/
+
+:root {
+   --yellow: #F6D64A;
+   --teal: #55BCD5;
+   --blue: #499BD2;
+   --purple: #9B26B0;
+   --black: #000000;
+   --dark-gray: #222222;
+   --light-gray: #EAEAEA;
+   --white: #FFFF;
+   --molle: 'Molle', cursive;
+   --mon: 'Montserrat', sans-serif;
+   font-size: 16px;
+}
+
+/*---SKIP TO MAIN CONTENT---*/
+
+#skip{
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width:1px;
+    height:1px;
+    overflow: hidden;
+}
+   
+#skip:focus{
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+/*---GLOBAL---*/
+
+html {
+    width: 100%;
+}
+
+nav, a, form, q, p, input, select {
+    font-size: 1.25rem;
+    font-family: var(--mon);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--molle);
+    color: var(--black);
+}
+
+p, q {
+    color: var(--dark-gray);
+}
+
+h1 {
+    font-size: 3.125rem;
+}
+
+h2 {
+    font-size: 2.813rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+h4 {
+    font-size: 1.875rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+
+/*---HEADER---*/
+header {
+    background: linear-gradient(#55BCD5, #FFF);
+}
+
+
+header h1 {
+    padding: 20px 20px 0 20px;
+}
+
+header p {
+    padding: 0 20px 20px 20px;
+}
+
+/*---BODY---*/
+body {
+    background-color: var(--white);
+    width: 100%;
+}
+
+/*---NAV---*/
+
+#menu-toggle h2 {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+#menu-toggle {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 50px;  
+    z-index: 1;  
+    -webkit-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
+  }
+  
+  #menu-toggle a {
+    text-decoration: none;
+    color: #232323;
+    -webkit-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+  }
+  
+  /* The hamburger button hidden inside an input element */
+  #menu-toggle input {
+    display: block;
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    top: -200px;
+    left: 200px;
+    /* top: -7px;
+    left: -5px;   */
+    padding: 0;
+    cursor: pointer;  
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */  
+    -webkit-touch-callout: none;    
+  }
+  
+  #menu-toggle label {
+    text-align:center;
+    position: relative;
+    top: -200px;
+    left: 150px;
+    display: block;
+    margin-left: 3rem;
+    width: 140px;
+    height: 45px;
+    background-color: var(--yellow);
+    /* padding-left: 100px; */
+    padding-top: 12px;
+  }
+
+  #menu-toggle label span {
+    display: none;
+  }
+  
+  /*
+   * Use absolute positioning to place the menu off-screen
+   */
+  #menu {
+    position: absolute;
+    top: -12px;
+    width: 100%;
+    margin: -100px 0 0 -50px;
+    background-color: var(--teal);
+    list-style-type: none;
+    left: -100%;
+    -webkit-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease; 
+    display: grid;
+  }
+  
+  #menu li {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0;
+    font-size: 22px;
+    border: solid 2px var(--dark-gray);
+  }
+  
+  /*
+   * Slide the menu in from left when the input is checked
+   */
+  #menu-toggle input:checked ~ ul {
+    left: 0px;
+}
+
+/*---INTRO---*/
+
+
+#intro {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+    "majorca" 
+    "text"
+    "gallery";
+}
+
+h2#intro {
+    display: grid;
+    grid-area: majorca;
+}
+
+p#intro {
+    display: grid;
+    grid-area: text;
+}
+
+#intro h2, #intro p {
+    padding: 0 1rem 1rem 1rem;
+}
+
+#img-grid {
+    grid-area: gallery;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-template-areas:
+        "waves"
+        "beach"
+        "cove"; 
+    gap: 1rem;
+    justify-items: center;
+    align-content: center;
+    padding: 1rem 0 1rem 0;
+}
+
+div#img-grid > img:nth-of-type(1) {
+    grid-area: waves;
+    width: 100%;
+}
+
+div#img-grid img:nth-of-type(2) {
+    grid-area: beach;
+    width: 100%;
+}
+
+picture {
+    display: grid;
+    grid-area: cove;
+}
+
+picture img {
+    width: 100%;
+}
+
+img, picture {
+    display: grid;
+}
+
+/*---PLAN YOUR TRIP---*/
+
+#plan {
+    background-color: var(--yellow);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "title"
+    "icons";
+}
+
+#plan h4 {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+#plan h3 {
+    display: grid;
+    grid-area: title;
+    padding: 1rem 2rem;
+}
+
+#plan div {
+    padding-bottom: 1rem;
+    grid-area: icons;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    grid-template-areas: 
+    "plane"
+    "hotel"
+    "boat"
+    "eat";
+}
+
+#plan div > section:nth-of-type(1) {
+    grid-area: plane;
+}
+
+#plan div > section:nth-of-type(2){
+    grid-area: hotel;
+}
+
+#plan div > section:nth-of-type(3){
+    grid-area: boat;
+}
+
+#plan div > section:nth-of-type(4){
+    grid-area: eat;
+}
+
+#plan section {
+    padding-bottom: 1rem;
+}
+
+#plan svg {
+    width: 100%;
+}
+
+/*---TESTIMONIALS---*/
+
+#testimonials {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "title"
+    "test";
+    padding: 2rem;
+}
+
+#testimonials div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-content: center;
+    grid-template-areas: 
+    "miranda"
+    "max"
+    "ines"
+    "carmen";
+}
+
+#testimonials section {
+    display:grid;
+    padding: 1rem;
+    justify-items: center;
+}
+
+#testimonials div > section:nth-of-type(1) {
+    grid-area: miranda;
+    justify-items: center;
+}
+
+#testimonials div > section:nth-of-type(2) {
+    grid-area: max;
+    justify-content: center;
+}
+
+#testimonials div > section:nth-of-type(3) {
+    grid-area: ines;
+    justify-content: center;
+}
+
+#testimonials div > section:nth-of-type(4) {
+    grid-area: carmen;
+    justify-content: center;
+}
+
+#testimonials q {
+    text-align: center;
+    font-style: italic;
+}
+
+#testimonials img{
+    padding: 0.25rem;
+}
+
+/*---ABOUT---*/
+
+#about {
+    
+    background-color: var(--blue);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+    "title"
+    "div";
+    padding: 1rem;
+}
+
+#about div {
+    grid-area: div;
+    display: grid;
+    grid-template-areas:
+    "size elevation"
+    "location population";
+    justify-content: center ;
+}
+
+#about h3 {
+    grid-area:title;
+    grid-column: 1;
+}
+
+#about section {
+    display:grid;
+    padding: 1rem;
+}
+
+#about div > section:nth-of-type(1) {
+    grid-area: size;
+    justify-items: center; 
+}
+
+#about div > section:nth-of-type(2) {
+    grid-area: elevation;
+    justify-items: center;  
+}
+
+#about div > section:nth-of-type(3) {
+    grid-area: location;
+    justify-items: center;   
+}
+
+#about div > section:nth-of-type(4) {
+    grid-area: population;
+    justify-items: center;   
+}
+
+#about svg {
+    padding: .5rem;
+}
+
+/*---CONTACT US---*/
+
+.form-required {
+    font-size: 1rem;
+    font-style: italic;
+    font-family: var(--mon);
+}
+.required {
+    color: var(--purple);
+ }
+
+ #form {
+    display: grid;
+ }
+
+ #contact {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "title"
+    "names"
+    "nums"
+    "selects"
+    "custom"
+    "travel";
+}
+input#fName, input#lName, input#email, input#phone, select#destination, select#travelTime, input#mySubmit {
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+
+#names {
+    display: grid;
+    grid-area: names;
+}
+
+#nums {
+    display: grid;
+    grid-area: nums;
+}
+
+fieldset {
+    padding-bottom: 1rem;
+    display: grid;
+}
+
+span.radio-label {
+    padding: 12px 0 0 30px;
+}
+
+fieldset label {
+    font-size: 1.25rem;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    margin-top: 1em;
+    
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 3rem;
+    height: 3rem;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 1.25em;
+    height: 1.25em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--purple);
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+#selects {
+    display: grid;
+    grid-area: selects;
+}
+
+#travelTime {
+    display: grid;
+    grid-area: travel;
+}
+
+#contact label, legend {
+    padding: .25rem 0;
+    font-weight: 700;
+}
+
+#nums fieldset > label {
+    font-weight: 400;
+    padding: 0;
+}
+
+select {
+    width: 100%;
+}
+
+div#custom-select {
+    padding: 0;
+}
+
+#contact input, select {
+    border:solid 3px var(--purple);
+    
+}
+
+#mySubmit {
+    color: var(--light-gray);
+    background-color: var(--purple);
+    margin-top: .5rem;
+}
+
+/*---FOOTER---*/
+
+footer {
+    background-color: var(--light-gray);
+    height: 10rem;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+footer p, footer a {
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 501px) {
+    #intro {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas:
+        "majorca" 
+        "text"
+        "gallery";
+    }
+
+    #img-grid {
+        justify-items: center;
+    }
+
+    #menu-toggle{
+        position: inherit;
+        display: grid;
+    }
+
+    #menu-toggle input, #menu-toggle label {
+    width: 0;
+    height: 0;
+    top: -2000px;
+    left: 200px;
+    }
+
+    #menu {
+        position: static;
+        width: 100%;
+        background-color: transparent;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    #menu li {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        width: 90%;
+        height: 2rem;
+        padding: 1.5rem;
+        font-size: 1.75rem;
+        border: none;
+        margin: .5rem;
+        background-color: var(--white);
+    }   
+    #menu li:hover {
+        background-color: var(--yellow);
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr auto auto;
+        grid-template-areas:
+        "logo h1 h1"
+        "logo p p"
+        "nav nav nav";
+    }
+
+    header img {
+        width: 100%;
+    }
+
+    a#logo {
+        grid-area: logo;
+    }
+
+    header h1 {
+        grid-area: h1;
+        padding: 30px 0 0 0;
+        align-self: end;
+    }
+
+    header p {
+        padding: 0 0 20px 0;
+        grid-area: p;
+    }
+
+    nav {
+        grid-area: nav;
+    }
+
+    #menu {
+        margin: 0;
+    }
+
+    #menu li {
+        justify-content: center;
+    }
+    
+    
+}
+
+@media screen and (min-width: 550px) {
+    fieldset {
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-self: center;
+    }
+
+    footer {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+        "copyright copyright"
+        "privacy terms";
+    }
+
+    footer p {
+        grid-area: copyright;
+    }
+
+    footer > a:nth-of-type(1) {
+        grid-area: privacy;
+    }
+
+    footer > a:nth-of-type(2) {
+        grid-area: terms;
+    }
+
+}
+
+@media screen and (min-width: 670px) {
+    
+
+    #menu {
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }        
+    
+}
+
+@media screen and (min-width: 750px) {
+
+    #intro {
+        padding: 3rem;
+    }
+
+    #menu {
+        grid-template-rows: 1fr;
+        padding: 2rem;
+    }
+
+    #plan div {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        grid-template-areas: 
+        "plane hotel"
+        "boat eat";
+        padding: 2rem;
+    }
+
+    #plan section {
+        padding: 1rem;
+    }
+
+    #testimonials div {
+        grid-template-columns:1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        align-content: center;
+        grid-template-areas: 
+        "miranda max"
+        "ines carmen";
+    }
+
+    #about div {
+        grid-template-areas:
+        "size elevation location population";
+        padding: 3rem;
+    }
+
+    #about h3 {
+        padding: 2rem 0 0 2rem;
+    }
+
+    #mySubmit {
+        width: 30%;
+        justify-self: end;
+    }
+
+    #img-grid {
+        padding: .5rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1rem;
+        grid-template-areas:
+        "waves beach"
+        "cove cove";      
+    }
+
+    footer {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "copyright copyright privacy terms";
+    }
+
+}
+
+@media screen and (min-width: 900px) {
+    #contact {
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto;
+        grid-template-areas:
+        "h3"
+        "form";
+    }
+
+    #contact h3{
+        grid-area: h3;
+    }
+
+    form {
+        display: grid;
+        grid-area: form;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+        "names nums"
+        "selects selects";
+        padding: 1rem;
+    }
+
+    form > div {
+        padding: .25rem;
+    }
+
+    fieldset {
+        justify-self: start;
+    }
+
+    div#names {
+        grid-area: names;
+        align-self: start;
+    }
+
+    div#nums {
+        grid-area: nums;
+        align-self: start;
+    }
+
+    div#selects {
+        grid-area: selects;
+        align-self: start;
+    }
+
+}
+
+@media screen and (min-width: 1100px) {
+
+    header p {
+        align-self: end;
+        padding: 0;
+    }
+
+    #intro {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+        "majorca gallery"
+        "text gallery"
+        "none gallery";
+        padding: 3rem 8rem;
+    }
+
+    #plan div {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "plane hotel boat eat";
+        padding: .5rem;
+    }
+
+    #contact {
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto;
+        grid-template-areas:
+        "h3"
+        "form";
+    }
+
+    #contact h3{
+        grid-area: h3;
+    }
+
+    form {
+        display: grid;
+        grid-area: form;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "names nums selects";
+        padding: 1rem;
+    }
+
+    form > div {
+        padding: .25rem;
+    }
+
+    span.radio-label {
+        padding: 12px 0 0 22px;
+    }
+
+    footer {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "copyright copyright none none privacy terms";
+    }
+}
+
+@media screen and (min-width: 1350px){
+
+    #testimonials div {
+        grid-template-columns:1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        align-content: center;
+        grid-template-areas: 
+        "miranda max ines carmen";
+    }
+}
+
+@media screen and (min-width: 1400px){
+
+    
+}
+
+@media screen and (min-width: 1500px) {
+
+    header {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "logo h1 h1 nav nav"
+        "logo p p nav nav";
+        padding-bottom: 3rem;
+    }
+
+    #menu-toggle {
+        display: grid;   
+    }
+    
+    #menu {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        padding: 0;
+    }
+    nav {
+        display: grid;
+        grid-area: nav;
+        justify-items: end;
+        align-self: start;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    #menu {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+

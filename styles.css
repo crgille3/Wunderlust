@@ -996,7 +996,7 @@ footer p, footer a {
     header {
         display: grid;
         grid-template-rows: auto auto;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: auto auto auto 1fr 1fr;
         grid-template-areas: 
         "logo h1 h1 nav nav"
         "logo p p nav nav";

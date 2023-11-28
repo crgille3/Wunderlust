@@ -815,11 +815,7 @@ footer p, footer a {
         "boat eat";
         padding: 2rem;
     }
-
-    #plan section {
-        padding: 1rem;
-    }
-
+    
     #testimonials div {
         grid-template-columns:1fr 1fr;
         grid-template-rows: 1fr 1fr;
@@ -837,6 +833,10 @@ footer p, footer a {
 
     #about h3 {
         padding: 2rem 0 0 2rem;
+    }
+
+    #about section {
+        padding: 1rem;
     }
 
     #mySubmit {
@@ -864,6 +864,10 @@ footer p, footer a {
 }
 
 @media screen and (min-width: 900px) {
+    #plan section {
+        padding: 1rem;
+    }
+
     #contact {
         grid-template-rows: auto 1fr;
         grid-template-columns: auto;
